@@ -1,0 +1,36 @@
+<h1>{{title}}</h1>
+<h3>Add new book</h3>
+<form>
+<input type="text" ng-model="book.title" placeholder="title" /><br>
+<input type="text" ng-model="book.author" placeholder="author" /><br>
+<input type="button" ng-click="addBook()" value="add book" />
+</form>
+<hr>
+
+<p>{{description}}</p>
+
+<h3>Booklist</h3>
+
+<input type="search" placeholder="search books" ng-model="search" />
+
+
+<table>
+	<tr>
+		<td>Title</td>
+		<td>Author</td>
+		<td></td>
+	</tr>
+	<tr ng-repeat="b in books | filter:search">
+		<td>{{b.title}}</td>
+		<td>{{b.author}}</td>
+		<td>
+		<input type="button" ng-click="removeBook($index)" value="remove"/>
+		</td>
+	</tr>
+</table>
+
+<!-- 
+<div ng-repeat="b in books">
+<p>{{b.title}}, {{b.author}}</p>
+</div> 
+ -->
